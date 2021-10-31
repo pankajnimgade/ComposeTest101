@@ -14,12 +14,28 @@ class Compose102Activity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Test101Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting2("Android")
-                }
-            }
+            MessageCard(name = "Android")
+        }
+    }
+}
+
+@Composable
+fun MessageCard(name: String){
+    Text(text = "Hello $name!")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreviewMessageCard(){
+    MessageCard(name = "Android")
+}
+
+@Composable
+fun Compose102ActivityScreen() {
+    Test101Theme {
+        // A surface container using the 'background' color from the theme
+        Surface(color = MaterialTheme.colors.background) {
+            Greeting2("Android")
         }
     }
 }

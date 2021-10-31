@@ -11,4 +11,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_compose101">Compose101Activity</string>
     <string name="title_activity_compose102">Compose102Activity</string>
+    <string name="title_activity_compose103">Compose103Activity</string>
+    <string name="title_activity_compose104">Compose104Activity</string>
 </resources>
