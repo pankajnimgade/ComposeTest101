@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.test101.compose103.Compose103Activity
 import com.example.test101.compose104.Compose104Activity
+import com.example.test101.compose105.Compose105Activity
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**
@@ -35,7 +36,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            this@FirstFragment.startActivity(Intent(activity, Compose104Activity::class.java))
+            this@FirstFragment.startActivity(Intent(activity, Compose105Activity::class.java))
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
