@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test101">
         <activity
+            android:name=".compose106.Compose106Activity"
+            android:exported="false"
+            android:label="@string/title_activity_compose106"
+            android:theme="@style/Theme.Test101.NoActionBar" />
+        <activity
             android:name=".compose105.Compose105Activity"
             android:exported="false"
             android:label="@string/title_activity_compose105"
