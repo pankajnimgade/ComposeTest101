@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.test101.compose103.Compose103Activity
-import com.example.test101.compose104.Compose104Activity
-import com.example.test101.compose105.Compose105Activity
 import com.example.test101.compose106.Compose106Activity
+import com.example.test101.compose107.Compose107Activity
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**

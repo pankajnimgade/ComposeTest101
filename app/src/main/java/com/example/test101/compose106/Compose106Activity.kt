@@ -1,7 +1,6 @@
 package com.example.test101.compose106
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -10,7 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -36,13 +35,17 @@ class Compose106Activity : ComponentActivity() {
 
     @Composable
     fun CheckLayoutGravity() {
-        Row(modifier = Modifier
-            .wrapContentHeight()
-            .padding(4.dp),
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .padding(4.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start) {
-            Image(painter = painterResource(id = R.drawable.profile_picture),
-                contentDescription = "Something to be", modifier = Modifier.size(70.dp))
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.profile_picture),
+                contentDescription = "Something to be", modifier = Modifier.size(70.dp)
+            )
             Text(text = "Hello World")
         }
 
@@ -56,21 +59,22 @@ class Compose106Activity : ComponentActivity() {
 
 
     @Composable
-    fun ClickCounter(clicks: Int, onClick: () -> Unit) {
-        Button(onClick = onClick) {
-            Text(text = "I have been clicked $clicks times")
-        }
-    }
-
-    @Composable
     fun GreetingToListOfUsers(names: List<String>) {
         Column {
             for (name in names) {
                 Text(text = "Hello $name!")
             }
-            ClickCounter(clicks = 0) {
-                Log.d("Compose106Activity","clicked")
+            var clicks by remember { mutableStateOf(0) }
+            ClickCounter(clicks = clicks) {
+                clicks++
             }
+        }
+    }
+
+    @Composable
+    fun ClickCounter(clicks: Int, onClick: (Int) -> Unit) {
+        Button(onClick = { onClick(clicks) }) {
+            Text(text = "I have been clicked $clicks times")
         }
     }
 
