@@ -17,4 +17,5 @@
     <string name="title_activity_compose106">Compose106Activity</string>
     <string name="title_activity_compose107">Compose107Activity</string>
     <string name="title_activity_compose108_basic_codelab">Compose108BasicCodelab</string>
+    <string name="title_activity_compose109_on_boarding">Compose109OnBoardingActivity</string>
 </resources>

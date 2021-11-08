@@ -4,16 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,7 +25,21 @@ class Compose108BasicCodeLab : ComponentActivity() {
 }
 
 @Composable
-private fun MyAppCompose108BasicCodeLab(names: List<String> = listOf("World", "Compose")) {
+private fun MyAppCompose108BasicCodeLab() {
+
+    var shouldShowOnBoarding by remember {
+        mutableStateOf(true)
+    }
+
+    if (shouldShowOnBoarding) {
+        OnBoardingScreen(onContinueClicked = { shouldShowOnBoarding = false })
+    } else {
+        Greeting6s()
+    }
+}
+
+@Composable
+fun Greeting6s(names: List<String> = listOf("World", "Compose")) {
     Column(modifier = Modifier.padding(vertical = 4.dp)) {
         for (name in names) {
             Greeting6(name = name)
@@ -45,12 +53,13 @@ fun Greeting6(name: String) {
     val extraPadding = if (expanded.value) 48.dp else 0.dp
     Surface(
         color = MaterialTheme.colors.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
+        modifier = Modifier.padding(vertical = 4.dp)
     ) {
 //        Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
         Row(modifier = Modifier.padding(24.dp)) {
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
                     .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello, ")
@@ -69,10 +78,40 @@ fun Greeting6(name: String) {
     }
 }
 
+
+@Composable
+fun OnBoardingScreen(onContinueClicked: () -> Unit) {
+    Surface() {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "Welcome to the Basics Codelab!")
+
+            Button(
+                modifier = Modifier.padding(vertical = 24.dp),
+                onClick = onContinueClicked
+            ) {
+                Text(text = "Continue")
+            }
+        }
+    }
+
+}
+
+@Preview(showBackground = true, showSystemUi = true, name = "OnBoarding")
+@Composable
+fun DefaultPreviewOnBoarding() {
+    Test101Theme {
+        OnBoardingScreen(onContinueClicked = {}) // Do nothing on click
+    }
+}
+
 @Preview(showBackground = true, showSystemUi = true, name = "Text preview")
 @Composable
 fun DefaultPreview6() {
     Test101Theme {
-        MyAppCompose108BasicCodeLab()
+        Greeting6s()
     }
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.test101.compose106.Compose106Activity
 import com.example.test101.compose107.Compose107Activity
 import com.example.test101.compose108.Compose108BasicCodeLab
+import com.example.test101.compose109.Compose109OnBoardingActivity
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**
