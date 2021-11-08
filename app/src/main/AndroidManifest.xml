@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test101">
         <activity
+            android:name=".compose108.Compose108BasicCodeLab"
+            android:exported="false"
+            android:label="@string/title_activity_compose108_basic_codelab"
+            android:theme="@style/Theme.Test101.NoActionBar" />
+        <activity
             android:name=".compose107.Compose107Activity"
             android:exported="false"
             android:label="@string/title_activity_compose107"
