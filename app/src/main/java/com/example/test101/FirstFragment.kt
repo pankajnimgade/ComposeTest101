@@ -37,7 +37,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            this@FirstFragment.startActivity(Intent(activity, Compose108BasicCodeLab::class.java))
+            this@FirstFragment.startActivity(Intent(activity, Compose109OnBoardingActivity::class.java))
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }

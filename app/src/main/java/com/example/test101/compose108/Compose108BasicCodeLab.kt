@@ -27,6 +27,8 @@ class Compose108BasicCodeLab : ComponentActivity() {
 @Composable
 private fun MyAppCompose108BasicCodeLab() {
 
+    // when true onBoarding screen is shown
+    // when false Greeting6s List is shown
     var shouldShowOnBoarding by remember {
         mutableStateOf(true)
     }
@@ -49,6 +51,10 @@ fun Greeting6s(names: List<String> = listOf("World", "Compose")) {
 
 @Composable
 fun Greeting6(name: String) {
+    //State and MutableState are interfaces that hold some value and
+    // trigger UI updates (recompositions) whenever that value changes.
+    //To preserve state across recompositions, remember the mutable state using remember.
+    //remember is used to guard against recomposition, so the state is not reset.
     val expanded = remember { mutableStateOf(false) }
     val extraPadding = if (expanded.value) 48.dp else 0.dp
     Surface(
@@ -74,7 +80,6 @@ fun Greeting6(name: String) {
                 Text(text = if (expanded.value) "Show less" else "Show More")
             }
         }
-
     }
 }
 
