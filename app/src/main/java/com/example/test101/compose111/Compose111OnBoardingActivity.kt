@@ -1,18 +1,16 @@
 package com.example.test101.compose111
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -76,11 +74,41 @@ fun Greetings111(names: List<String> = List(1000) { "$it .." }) {
 
 @Composable
 fun Greeting111(name: String) {
+    //State and MutableState are interfaces that hold some value and
+    // trigger UI updates (recompositions) whenever that value changes.
+    //To preserve state across recompositions, remember the mutable state using remember.
+    //remember is used to guard against recomposition, so the state is not reset.
+    val expanded = rememberSaveable { mutableStateOf(false) }
+    val extraPadding by animateDpAsState(
+        targetValue = if (expanded.value) 48.dp else 0.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        )
+    )
     Surface(
         color = MaterialTheme.colors.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-
+//        Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding.coerceAtLeast(0.dp))
+            ) {
+                Text(text = "Hello, ")
+                Text(text = "$name")
+            }
+            OutlinedButton(
+                onClick = { /*TODO*/
+                    Log.d("BasicCodeLab", "Clicked")
+                    expanded.value = !expanded.value
+                }
+            ) {
+                Text(text = if (expanded.value) "Show less" else "Show More")
+            }
+        }
     }
 }
 
@@ -90,5 +118,13 @@ fun Greeting111(name: String) {
 fun DefaultPreview8() {
     Test101Theme {
         MyAppCompose111OnBoardingActivity()
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true, name = "List")
+@Composable
+fun DefaultPreview111List() {
+    Test101Theme {
+        Greetings111()
     }
 }
