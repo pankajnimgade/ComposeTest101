@@ -12,6 +12,7 @@ import com.example.test101.compose108.Compose108BasicCodeLab
 import com.example.test101.compose109.Compose109OnBoardingActivity
 import com.example.test101.compose110.Compose110OnBoardingActivity
 import com.example.test101.compose111.Compose111OnBoardingActivity
+import com.example.test101.compose112.Compose112OnBoardingActivity
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**
@@ -39,7 +40,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            this@FirstFragment.startActivity(Intent(activity, Compose111OnBoardingActivity::class.java))
+            this@FirstFragment.startActivity(Intent(activity, Compose112OnBoardingActivity::class.java))
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
