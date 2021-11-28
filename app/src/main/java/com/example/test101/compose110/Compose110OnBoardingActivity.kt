@@ -4,18 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,8 +26,43 @@ class Compose110OnBoardingActivity : ComponentActivity() {
             Test101Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greetings110()
+                    MyAppCompose110OnBoardingActivity()
                 }
+            }
+        }
+    }
+
+
+}
+
+
+@Composable
+private fun MyAppCompose110OnBoardingActivity() {
+    //State and MutableState are interfaces that hold some value and
+    // trigger UI updates (recompositions) whenever that value changes.
+    //To preserve state across recompositions, remember the mutable state using remember.
+    //remember is used to guard against recomposition, so the state is not reset.
+    var showOnBoarding by rememberSaveable{ mutableStateOf(true) }
+
+    if (showOnBoarding) {
+        onBoardingScreen110(onContinueClicked = { showOnBoarding = false })
+    } else {
+        Greetings110()
+    }
+}
+
+@Composable
+fun onBoardingScreen110(onContinueClicked: () -> Unit) {
+    Surface {
+        Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = "Welcome to the basic Codelab 110!")
+            Button(
+                modifier = Modifier.padding(vertical = 24.dp),
+                onClick =onContinueClicked
+            ) {
+                Text(text = "Continue")
             }
         }
     }
@@ -85,6 +115,6 @@ fun Greeting110(name: String) {
 @Composable
 fun DefaultPreview7() {
     Test101Theme {
-        Greetings110()
+        MyAppCompose110OnBoardingActivity()
     }
 }
