@@ -6,13 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.test101.compose106.Compose106Activity
-import com.example.test101.compose107.Compose107Activity
-import com.example.test101.compose108.Compose108BasicCodeLab
-import com.example.test101.compose109.Compose109OnBoardingActivity
-import com.example.test101.compose110.Compose110OnBoardingActivity
-import com.example.test101.compose111.Compose111OnBoardingActivity
-import com.example.test101.compose112.Compose112OnBoardingActivity
+import com.example.test101.compose113.Compose113LayoutInJetpack
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**
@@ -40,7 +34,12 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            this@FirstFragment.startActivity(Intent(activity, Compose112OnBoardingActivity::class.java))
+            this@FirstFragment.startActivity(
+                Intent(
+                    activity,
+                    Compose113LayoutInJetpack::class.java
+                )
+            )
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
