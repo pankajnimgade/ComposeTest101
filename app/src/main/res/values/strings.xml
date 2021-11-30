@@ -22,4 +22,6 @@
     <string name="title_activity_compose111_on_boarding">Compose111OnBoardingActivity</string>
     <string name="title_activity_compose112_on_boarding">Compose112OnBoardingActivity</string>
     <string name="title_activity_compose113_layout_in_jetpack">Compose113LayoutInJetpack</string>
+    <string name="title_activity_compose114_material_components">Compose114MaterialComponents
+    </string>
 </resources>

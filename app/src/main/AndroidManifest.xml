@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test101">
         <activity
+            android:name=".compose114.Compose114MaterialComponents"
+            android:exported="false"
+            android:label="@string/title_activity_compose114_material_components"
+            android:theme="@style/Theme.Test101.NoActionBar" />
+        <activity
             android:name=".compose113.Compose113LayoutInJetpack"
             android:exported="false"
             android:label="@string/title_activity_compose113_layout_in_jetpack"
