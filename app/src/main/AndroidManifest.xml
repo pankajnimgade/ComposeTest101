@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test101">
         <activity
+            android:name=".compose115.Compose115ExtendingButton"
+            android:exported="false"
+            android:label="@string/title_activity_compose115_extending_button"
+            android:theme="@style/Theme.Test101.NoActionBar" />
+        <activity
             android:name=".compose114.Compose114MaterialComponents"
             android:exported="false"
             android:label="@string/title_activity_compose114_material_components"

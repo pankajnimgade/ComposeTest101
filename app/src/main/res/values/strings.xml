@@ -24,4 +24,5 @@
     <string name="title_activity_compose113_layout_in_jetpack">Compose113LayoutInJetpack</string>
     <string name="title_activity_compose114_material_components">Compose114MaterialComponents
     </string>
+    <string name="title_activity_compose115_extending_button">Compose115ExtendingButton</string>
 </resources>

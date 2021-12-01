@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.test101.compose113.Compose113LayoutInJetpack
-import com.example.test101.compose114.Compose114MaterialComponents
+import com.example.test101.compose115.Compose115ExtendingButton
 import com.example.test101.databinding.FragmentFirstBinding
 
 /**
@@ -38,7 +37,7 @@ class FirstFragment : Fragment() {
             this@FirstFragment.startActivity(
                 Intent(
                     activity,
-                    Compose114MaterialComponents::class.java
+                    Compose115ExtendingButton::class.java
                 )
             )
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
